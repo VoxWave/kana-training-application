@@ -33,7 +33,9 @@ fn main() {
     }
     let mut rng = thread_rng();
     pairs.shuffle(&mut rng);
+    let mut round = 1;
     loop {
+        println!("Round {}:", round);
         let mut missed = Vec::new();
         while let Some(pair) = pairs.pop() {
             println!("{}", pair.0);
@@ -55,6 +57,7 @@ fn main() {
             missed.shuffle(&mut rng);
             pairs = missed;
         }
+        round += 1;
     }
     println!("Practice completed. Congratulations!");
 }
